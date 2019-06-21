@@ -25,10 +25,9 @@
 
 <body>
 
-    <!-- Employee Tracker -->
+    <!-- T Schedule Tracker -->
     <div class="container">
 
-        <!-- Jumbotron -->
         <div class="jumbotron">
             <h1 class="text-center">MBTA</h1>
             <h3 class="text-center">Get Ya Chahlie Cahd!</h3>
@@ -38,11 +37,11 @@
 
             <div class="col-md-12">
 
-                <!-- Current Employees-->
+                <!-- Current Schedule-->
                 <div class="card mb-4">
                     <div class="card-header">T Schedule</div>
                     <div class="card-body">
-                        <table class="table table-sm table-hover" id='employee-table'>
+                        <table class="table table-sm table-hover" id='t-line-table'>
                             <thead>
                                 <tr>
                                     <th scope="col">T Line</th>
@@ -62,30 +61,30 @@
 
         <div class="row">
             <div class="col-md-12">
-                <!-- Add Employee  -->
+                <!-- Add A New T Line  -->
                 <div class="card mb-4">
                     <div class="card-header">Add Another Line</div>
                     <div class="card-body">
 
-                        <!-- Entry Form -->
+                        <!-- Enter Here -->
                         <form>
                             <div class="form-group">
                                 <label for="employee-name-input">T Line</label>
-                                <input class="form-control" id="employee-name-input" placeholder="Red Line" type="text">
+                                <input class="form-control" id="t-line-input" placeholder="Red Line" type="text">
                             </div>
                             <div class="form-group">
                                 <label for="role-input">Destination</label>
-                                <input class="form-control" id="role-input" placeholder="Quincy Center" type="text">
+                                <input class="form-control" id="destination-input" placeholder="Quincy Center" type="text">
                             </div>
                             <div class="form-group">
-                                <label for="start-input">First Train Time (HH:mm - military time)</label>
-                                <input class="form-control" id="start-input" placeholder="04:30" type="text">
+                                <label for="start-input">First Train Time (HH:mm - 24hr time)</label>
+                                <input class="form-control" id="start-time" placeholder="04:30" type="text">
                             </div>
                             <div class="form-group">
                                 <label for="rate-input">Frequency (min)</label>
                                 <input class="form-control" id="rate-input" placeholder="12" type="text">
                             </div>
-                            <button class="btn btn-primary float-right" id="add-employee-btn">Submit</button>
+                            <button class="btn btn-primary float-right" id="add-t-line">Submit</button>
                         </form>
 
                     </div>
