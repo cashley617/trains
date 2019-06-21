@@ -1,0 +1,36 @@
+
+body {
+    background-color: white;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 60px;
+}
+
+.btn {
+    background-color: #165c96;
+    border: none;
+}
+
+.card-body {
+    border: 1px solid rgb(0, 132, 61);
+}
+
+.card-header {
+    background-color: rgb(0, 132, 61);
+    color: white;
+}
+
+.jumbotron { 
+    background-color: #ffc72c;
+    color: #000;
+}
+
+#employee-table th,
+    td {
+      display: inline-block;
+      width: 16.575%;
+    }
+
+

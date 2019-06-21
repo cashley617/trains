@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles/index.css">
     
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/6.2.1/firebase-app.js"></script>
@@ -22,23 +22,83 @@
 
 
 </head>
+
 <body>
 
+    <!-- Employee Tracker -->
+    <div class="container">
+
+        <!-- Jumbotron -->
+        <div class="jumbotron">
+            <h1 class="text-center">MBTA</h1>
+            <h3 class="text-center">Get Ya Chahlie Cahd!</h3>
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-12">
+
+                <!-- Current Employees-->
+                <div class="card mb-4">
+                    <div class="card-header">T Schedule</div>
+                    <div class="card-body">
+                        <table class="table table-sm table-hover" id='employee-table'>
+                            <thead>
+                                <tr>
+                                    <th scope="col">T Line</th>
+                                    <th scope="col">Destination</th>
+                                    <th scope="col">Frequency (min)</th>
+                                    <th scope="col">Next Arrival</th>
+                                    <th scope="col">Minutes Away</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <!-- Add Employee  -->
+                <div class="card mb-4">
+                    <div class="card-header">Add Another Line</div>
+                    <div class="card-body">
+
+                        <!-- Entry Form -->
+                        <form>
+                            <div class="form-group">
+                                <label for="employee-name-input">T Line</label>
+                                <input class="form-control" id="employee-name-input" placeholder="Red Line" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="role-input">Destination</label>
+                                <input class="form-control" id="role-input" placeholder="Quincy Center" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="start-input">First Train Time (HH:mm - military time)</label>
+                                <input class="form-control" id="start-input" placeholder="04:30" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="rate-input">Frequency (min)</label>
+                                <input class="form-control" id="rate-input" placeholder="12" type="text">
+                            </div>
+                            <button class="btn btn-primary float-right" id="add-employee-btn">Submit</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 
 
 
+    <script src="js/trains.js"></script>
 
 
-
-
-
-
-
-
-
-
-
-
-    
 </body>
 </html>
