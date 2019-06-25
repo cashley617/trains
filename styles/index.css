@@ -8,6 +8,10 @@ h1 {
     font-size: 60px;
 }
 
+td {
+    margin: 5px;
+}
+
 .btn {
     background-color: #165c96;
     border: none;
