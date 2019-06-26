@@ -8,10 +8,6 @@ h1 {
     font-size: 60px;
 }
 
-td {
-    margin: 5px;
-}
-
 .btn {
     background-color: #165c96;
     border: none;
@@ -31,9 +27,8 @@ td {
     color: #000;
 }
 
-#employee-table th,
+#train-table th,
     td {
-      display: inline-block;
       width: 16.575%;
     }
 

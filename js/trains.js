@@ -16,10 +16,7 @@ firebase.initializeApp(firebaseConfig);
 let database = firebase.database(); 
 
 
-
-
 // Add new T line's here 
-
 $("#add-t-line").on("click", function(event) {
     event.preventDefault();
 
@@ -28,8 +25,6 @@ $("#add-t-line").on("click", function(event) {
     let tDest = $("#destination-input").val().trim();
     let tStart = moment($("#start-time").val().trim(), "HH:mm").format("X");
     let tFreq = $("#rate-input").val().trim();
-
-    console.log(typeof tStart);
 
     let newT = {
         line: tName,
@@ -41,10 +36,6 @@ $("#add-t-line").on("click", function(event) {
     // Send new data to the database 
     database.ref().push(newT);
 
-    console.log(newT.line);
-    console.log(newT.dest);
-    console.log(newT.start);
-    console.log(newT.freq);
 
     alert("Wicked Pissah!");
     
@@ -67,19 +58,8 @@ function timeDiff(now, start, freq) {
     return freq - (((hourDiff * 60) + minDiff) % freq)
 }
 
-
-
-// function timeDiff(now, start, freq) {
-//     const diff = moment(now).diff(start, "minutes");
-//     return diff;
-// }
-
-
-
 // Firebase 
-
 database.ref().on("child_added", function(childSnapshot) {
-    console.log(childSnapshot.val());
 
     // Make variables 
     let tName = childSnapshot.val().line;
@@ -87,56 +67,25 @@ database.ref().on("child_added", function(childSnapshot) {
     let tStart = childSnapshot.val().start;
     let tFreq = childSnapshot.val().freq;
 
-    // Console the info 
-    console.log(tName);
-    console.log(tDest);
-    console.log(tStart);
-    console.log(tFreq);
 
     // Prettify
     let tStartClean = moment.unix(tStart).format("HH:mm");
-    console.log('tStartClean', tStartClean);
 
     // Math Time 
-
     let rightNow = new Date()
-    rightNow = rightNow.getHours() + ":" + rightNow.getMinutes()
-    // rightNow = rightNow.getHours() + ":" + rightNow.getMinutes();
+        rightNow = rightNow.getHours() + ":" + rightNow.getMinutes()
 
-
-    const arrivingIn = timeDiff(rightNow, tStartClean, tFreq)
-    // const arrivingIn = moment(rightNow).add(tFreq, "minutes");
-    console.log(arrivingIn);
-    console.log(typeof arrivingIn);
-
-    
-
-    // tMinutes = tFreq.diff(moment(), "minutes");
-    // and find the modulus between the difference and the frequency
-
+    const arrivingIn = timeDiff(rightNow, tStartClean, tFreq);
     let timeDifference = moment().diff(tStartClean, "minutes");
-    
     let tRemainder = timeDifference % tFreq;
     
     tMinutes = tFreq - tRemainder;
 
     // To calculate the arrival time, add the tMinutes to the current time 
-        // To calculate the arrival time, add the tMinutes to the current time 
-    // To calculate the arrival time, add the tMinutes to the current time 
-        // tArrives = moment()
-        //     // .add(tMinutes, "m")
-        //     .add(arrivingIn)
-        //     .format("hh:mm A");
-
     let rightNowObj = moment(rightNow, "HH:mm a");
     tArrives = moment(rightNowObj).add(arrivingIn, "minutes").format("HH:mm a");
-    
-    console.log("tMinutes:", tMinutes);
-    console.log("tArrives:", tArrives);
-    console.log(arrivingIn, typeof arrivingIn)
 
     // Add each train's data into the table 
-    
     let newInfo = $("<tr>").append(
             $("<td>").text(tName),
             $("<td>").text(tDest),
